@@ -2,52 +2,16 @@ import "./todo.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { useState } from "react";
-import { Button, Dropdown, Modal } from "antd";
+import { Button, Modal } from "antd";
 import { BiSolidPencil, BiSolidTrashAlt } from "react-icons/bi";
-import { HiOutlineDotsVertical } from "react-icons/hi";
 import { FaCheck } from "react-icons/fa";
 import Input from "antd/es/input/Input";
-import type { MenuProps } from "antd";
 import Task from "../tasks/task";
 import dataCreate from "../../axios/dataCreate";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { v4 as uuid4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-const items: MenuProps["items"] = [
-  {
-    key: "1",
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="#"
-        className="flex justify-start items-center gap-2"
-        onClick={(e) => e.preventDefault()}
-      >
-        <BiSolidPencil />
-        Edit title
-      </a>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex justify-start items-center gap-2"
-        onClick={(e) => e.preventDefault()}
-      >
-        <BiSolidTrashAlt /> Delete list
-      </a>
-    ),
-    onClick: ({ item }) => {
-      console.log(item);
-    },
-  },
-];
 
 const EditListModal = ({ list }: { list: any }) => {
   const queryClient = useQueryClient();
