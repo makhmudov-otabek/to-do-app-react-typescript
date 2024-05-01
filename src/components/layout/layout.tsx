@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Menu, Button, theme, Modal } from "antd";
+import { NewLisType, BoardType } from "../../interfaces/data-type";
 import Lists from "../lists/list";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
@@ -9,13 +8,14 @@ import Input from "antd/es/input/Input";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { FaCheck } from "react-icons/fa";
 import { TiCancel } from "react-icons/ti";
-import { Typography } from "antd";
+import { Typography, Spin, Layout, Menu, Button, theme, Modal } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
 import {
   AiFillFolderOpen,
   AiFillFolderAdd,
   AiFillFolder,
 } from "react-icons/ai";
-import dataCreate from "../../axios/dataCreate";
+import dataCreate from "../../axios/data";
 import { v4 as uuid4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -32,7 +32,6 @@ const App: React.FC = () => {
   const [newListName, setNewListName] = useState("");
   const indexBoard = useSelector((state: RootState) => state.data.indexBoard);
   const dispatch = useDispatch();
-  const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -60,7 +59,6 @@ const App: React.FC = () => {
 
   const newTaskTitleHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewBoardName((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    console.log(newBoardName);
   };
 
   const addNewListMutation = useMutation(
@@ -88,21 +86,11 @@ const App: React.FC = () => {
 
   const addNewList = (): void => {
     if (newListName.trim().length == 0) {
-      toast.error("Please select fill the input!");
+      toast.error("Please fill the input!");
       return;
     }
-    interface newLisType {
-      id: number | string;
-      title: string;
-      boardId: number;
-      tasks: {
-        id: number;
-        title: string;
-        isActive: boolean;
-      }[];
-    }
 
-    const newList: newLisType = {
+    const newList: NewLisType = {
       id: uuid4(),
       title: newListName,
       boardId: indexBoard + 1,
@@ -115,12 +103,6 @@ const App: React.FC = () => {
   let { data, isError, isLoading } = useQuery("getBoards", () => {
     return dataCreate.get("/boards");
   });
-
-  interface BoardType {
-    id: number;
-    boardName: string;
-    lists: [];
-  }
 
   const showModal = (): void => {
     setIsModalOpen(true);
@@ -148,9 +130,14 @@ const App: React.FC = () => {
     });
   };
 
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading)
+    return (
+      <div className="h-screen flex justify-center items-center">
+        <Spin indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />} />
+      </div>
+    );
 
-  if (isError) return <h1>Error with server !</h1>;
+  if (isError) return <h1 className="text-red-500">Error with server !</h1>;
 
   return (
     <Layout className="h-screen">

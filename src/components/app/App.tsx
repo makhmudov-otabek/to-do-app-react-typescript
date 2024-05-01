@@ -1,5 +1,3 @@
-import React from "react";
-import "./App.css";
 import LayoutComponent from "../layout/layout";
 import { QueryClient, QueryClientProvider } from "react-query";
 

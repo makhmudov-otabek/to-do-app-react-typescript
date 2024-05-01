@@ -11,17 +11,17 @@
   ],
   "lists": [
     {
-      "id": "f6d4dd1f-7520-4019-8264-7569593d009c",
-      "title": "New list",
+      "id": "25a32483-d852-461a-b29e-ad0336f9fc62",
+      "title": "1",
       "boardId": 1,
       "tasks": []
     }
   ],
   "tasks": [
     {
-      "id": "dc8c6170-1ebe-438a-8ad1-530930c01ae3",
-      "listId": "f6d4dd1f-7520-4019-8264-7569593d009c",
-      "title": "1",
+      "id": "24caa29c-352a-4b96-8e21-4f4e21cdf106",
+      "listId": "25a32483-d852-461a-b29e-ad0336f9fc62",
+      "title": "4l",
       "isActive": false,
       "completed": false
     }

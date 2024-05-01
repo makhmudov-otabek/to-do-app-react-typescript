@@ -2,12 +2,13 @@ import "./todo.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { useState } from "react";
+import { ListType, TaskType } from "../../interfaces/data-type";
 import { Button, Modal } from "antd";
 import { BiSolidPencil, BiSolidTrashAlt } from "react-icons/bi";
 import { FaCheck } from "react-icons/fa";
 import Input from "antd/es/input/Input";
 import Task from "../tasks/task";
-import dataCreate from "../../axios/dataCreate";
+import dataCreate from "../../axios/data";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { v4 as uuid4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
@@ -145,13 +146,6 @@ const Lists = () => {
 
   let boardIndex = useSelector((state: RootState) => state.data.indexBoard);
 
-  interface TaskType {
-    id: number | string;
-    listId: number | string;
-    title: string;
-    isActive: boolean;
-  }
-
   const showModal = (index: number): void => {
     setIsModalOpen(true);
   };
@@ -287,31 +281,18 @@ const Lists = () => {
     }
     handleOk();
     editTaskMutation.mutate();
-    // dispatch(editTaskHandler({ ...taskEdit, editListIndex }));
   };
 
   const deleteTask = (id: number) => {
     deleteTaskMutation.mutate(id);
-    // dispatch(deleteTaskHandler({ id, editListIndex }));
   };
-
-  interface listType {
-    id: number;
-    boardId: number;
-    title: string;
-    tasks: {
-      id: number;
-      title: string;
-      isActive: boolean;
-    }[];
-  }
 
   let { data } = useQuery("getLists", () => {
     return dataCreate.get(`/lists`);
   });
 
   const updatedLists = data?.data.filter(
-    (list: listType) => list.boardId === boardIndex + 1
+    (list: ListType) => list.boardId === boardIndex + 1
   );
 
   return (

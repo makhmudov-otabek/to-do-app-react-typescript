@@ -1,6 +1,6 @@
 import { BiSolidPencil } from "react-icons/bi";
 import { useQuery } from "react-query";
-import dataCreate from "../../axios/dataCreate";
+import dataCreate from "../../axios/data";
 
 interface PropType {
   showModal: (index: number) => void;
