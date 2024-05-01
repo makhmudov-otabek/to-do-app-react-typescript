@@ -7,19 +7,19 @@
   ],
   "lists": [
     {
-      "id": "25a32483-d852-461a-b29e-ad0336f9fc62",
-      "title": "First board",
+      "id": "1d65926b-3455-4fa5-b981-eb4cba8bb36e",
+      "title": "First list",
       "boardId": 1,
       "tasks": []
     }
   ],
   "tasks": [
     {
-      "id": "24caa29c-352a-4b96-8e21-4f4e21cdf106",
-      "listId": "25a32483-d852-461a-b29e-ad0336f9fc62",
-      "title": "First task",
+      "id": "12d50708-b986-4408-aac6-a492d4c247a9",
+      "listId": "1d65926b-3455-4fa5-b981-eb4cba8bb36e",
+      "title": "First list",
       "isActive": false,
-      "completed": true
+      "completed": false
     }
   ]
 }

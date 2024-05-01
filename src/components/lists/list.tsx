@@ -79,7 +79,7 @@ const EditListModal = ({ list }: { list: any }) => {
         <BiSolidPencil />
       </Button>
       <Modal
-        title="Edit Task"
+        title="Edit List"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}
