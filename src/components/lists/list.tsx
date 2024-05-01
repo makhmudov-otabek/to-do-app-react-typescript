@@ -13,6 +13,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { v4 as uuid4 } from "uuid";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BiTask, BiTaskX } from "react-icons/bi";
 
 const EditListModal = ({ list }: { list: any }) => {
   const queryClient = useQueryClient();
@@ -424,7 +425,17 @@ const Lists = () => {
             taskEdit.completed ? "bg-orange-500 hover:bg-orange-400" : ""
           }`}
         >
-          {taskEdit.completed ? "Uncompleted" : "Complete"}
+          {taskEdit.completed ? (
+            <span className="flex items-center justify-center">
+              <BiTaskX />
+              Uncompleted
+            </span>
+          ) : (
+            <span className="flex items-center justify-center">
+              <BiTask />
+              Complete
+            </span>
+          )}
         </Button>
       </Modal>
       <ToastContainer />

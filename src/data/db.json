@@ -3,16 +3,12 @@
     {
       "boardName": "Board 1",
       "id": 1
-    },
-    {
-      "boardName": "1",
-      "id": 2
     }
   ],
   "lists": [
     {
       "id": "25a32483-d852-461a-b29e-ad0336f9fc62",
-      "title": "1",
+      "title": "First board",
       "boardId": 1,
       "tasks": []
     }
@@ -21,9 +17,9 @@
     {
       "id": "24caa29c-352a-4b96-8e21-4f4e21cdf106",
       "listId": "25a32483-d852-461a-b29e-ad0336f9fc62",
-      "title": "4l",
+      "title": "First task",
       "isActive": false,
-      "completed": false
+      "completed": true
     }
   ]
 }

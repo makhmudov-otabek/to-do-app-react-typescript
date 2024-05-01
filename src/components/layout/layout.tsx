@@ -137,7 +137,16 @@ const App: React.FC = () => {
       </div>
     );
 
-  if (isError) return <h1 className="text-red-500">Error with server !</h1>;
+  if (isError)
+    return (
+      <div className="p-5">
+        <h1 className="text-red-500">Error with server !</h1>
+        <h2 className="text-orange-500">Note: Turn on json server:</h2>
+        <p className="text-orange-500">
+          Terminal: npx --watch json-server ./src/data/db.json --port 5000
+        </p>
+      </div>
+    );
 
   return (
     <Layout className="h-screen">

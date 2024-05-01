@@ -51,7 +51,7 @@ const Task = ({ showModal, setTaskEdit, listIndex, id }: PropType) => {
               className="cursor-pointer"
             >
               {task.completed != false ? (
-                <i className={`text-green-500`}>{task.title}</i>
+                <i className={`text-green-500 line-through`}>{task.title}</i>
               ) : (
                 <span>{task.title}</span>
               )}
