@@ -1,0 +1,29 @@
+{
+  "boards": [
+    {
+      "boardName": "Board 1",
+      "id": 1
+    },
+    {
+      "boardName": "1",
+      "id": 2
+    }
+  ],
+  "lists": [
+    {
+      "id": "f6d4dd1f-7520-4019-8264-7569593d009c",
+      "title": "New list",
+      "boardId": 1,
+      "tasks": []
+    }
+  ],
+  "tasks": [
+    {
+      "id": "dc8c6170-1ebe-438a-8ad1-530930c01ae3",
+      "listId": "f6d4dd1f-7520-4019-8264-7569593d009c",
+      "title": "1",
+      "isActive": false,
+      "completed": false
+    }
+  ]
+}
