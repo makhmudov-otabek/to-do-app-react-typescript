@@ -244,9 +244,7 @@ const App: React.FC = () => {
               <TiCancel />
             </Button>
             <Button
-              onClick={() => {
-                addNewBoard();
-              }}
+              onClick={addNewBoard}
               type="primary"
               className="flex-1 bg-green-500"
             >

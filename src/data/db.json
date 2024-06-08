@@ -11,6 +11,12 @@
       "title": "First list",
       "boardId": 1,
       "tasks": []
+    },
+    {
+      "id": "6580741a-1ece-45a2-9d1a-8001d9f4c55f",
+      "title": "Second list",
+      "boardId": 1,
+      "tasks": []
     }
   ],
   "tasks": [
@@ -20,6 +26,13 @@
       "title": "First list",
       "isActive": false,
       "completed": false
+    },
+    {
+      "id": "a2155ab5-732a-422e-9e88-be17965fd375",
+      "listId": "6580741a-1ece-45a2-9d1a-8001d9f4c55f",
+      "title": "Second task",
+      "isActive": false,
+      "completed": true
     }
   ]
 }
